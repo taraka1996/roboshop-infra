@@ -60,7 +60,7 @@ resource "aws_security_group" "sg" {
 
 resource "aws_route53_record" "record" {
   zone_id = "Z0979159L4V27YKYGYYI"
-  name    = "${var.component}-devops-b-71.online"
+  name    = "${var.component}.devops-b-71.online"
   type    = "A"
   ttl     = 30
   records = [aws_instance.ec2.private_ip]
