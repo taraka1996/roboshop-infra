@@ -2,7 +2,7 @@ data "aws_caller_identity" "current" {}
 
 data "aws_ami" "ami" {
   most_recent = true
-  name_regex  = "devops-practice-with-ansible"
+  name_regex  = "devops-practice with ansible"
   owners      = [data.aws_caller_identity.current.account_id]
 }
 
@@ -26,7 +26,7 @@ resource "null_resource" "provisioner" {
     }
 
     inline = [
-      "ansible-pull -i localhost, -U https://github.com/sriharitirumala/roboshop-ansible roboshop.yml -e role_name=${var.component}"
+      "ansible-pull -i localhost, -U https://github.com/taraka1996/roboshop-ansible.git roboshop.yml -e role_name=${var.component}"
     ]
   }
 
