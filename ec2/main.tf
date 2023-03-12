@@ -22,7 +22,7 @@ resource "null_resource" "provisioner" {
     }
 
     inline = [
-      "ansible-pull -i localhost, -U https://github.com/raghudevopsb71/roboshop-ansible roboshop.yml -e role_name=${var.component} -e env=${var.env}"
+      "ansible-pull -i localhost, -U https://github.com/taraka1996/roboshop-ansible roboshop.yml -e role_name=${var.component} -e env=${var.env}"
     ]
 
   }
@@ -55,7 +55,7 @@ resource "aws_security_group" "sg" {
 
 resource "aws_route53_record" "record" {
   zone_id = "Z0979159L4V27YKYGYYI"
-  name    = "${var.component}-dev.devopsb71.online"
+  name    = "${var.component}-dev.devops-b-71.online"
   type    = "A"
   ttl     = 30
   records = [aws_instance.ec2.private_ip]
