@@ -60,16 +60,65 @@ resource "aws_security_group" "sg" {
 
 resource "aws_route53_record" "record" {
   zone_id = "Z0979159L4V27YKYGYYI"
-  name    = "${var.component}.devops-b-71.online"
+  name    = "${var.component}-dev.devops-b-71.online"
   type    = "A"
   ttl     = 30
   records = [aws_instance.ec2.private_ip]
 }
 
+resource "aws_iam_policy" "ssm-policy" {
+  name        = "${var.env}-${var.component}-ssm"
+  path        = "/"
+  description = "${var.env}-${var.component}-ssm"
 
-
-variable "component" {}
-variable "instance_type" {}
-variable "env" {
-  default = "dev"
+  policy = jsonencode({
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Sid" : "VisualEditor0",
+        "Effect" : "Allow",
+        "Action" : [
+          "ssm:GetParameterHistory",
+          "ssm:GetParametersByPath",
+          "ssm:GetParameters",
+          "ssm:GetParameter"
+        ],
+        "Resource" : "arn:aws:ssm:us-east-1:739561048503:parameter/${var.env}.${var.component}*"
+      },
+      {
+        "Sid" : "VisualEditor1",
+        "Effect" : "Allow",
+        "Action" : "ssm:DescribeParameters",
+        "Resource" : "*"
+      }
+    ]
+  })
 }
+
+resource "aws_iam_role" "role" {
+  name = "${var.env}-${var.component}-role"
+
+  assume_role_policy = jsonencode({
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Effect" : "Allow",
+        "Principal" : {
+          "Service" : "ec2.amazonaws.com"
+        },
+        "Action" : "sts:AssumeRole"
+      }
+    ]
+  })
+}
+
+resource "aws_iam_instance_profile" "profile" {
+  name = "${var.env}-${var.component}-role"
+  role = aws_iam_role.role.name
+}
+
+resource "aws_iam_role_policy_attachment" "policy-attach" {
+  role       = aws_iam_role.role.name
+  policy_arn = aws_iam_policy.ssm-policy.arn
+}
+
