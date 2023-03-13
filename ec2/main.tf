@@ -8,7 +8,8 @@ resource "aws_instance" "ec2" {
 }
 
 resource "null_resource" "provisioner" {
-provisioner "remote-exec" {
+  depends_on = [aws_route53_record.record]
+  provisioner "remote-exec" {
 
     connection {
       host     = aws_instance.ec2.public_ip
@@ -74,7 +75,7 @@ resource "aws_iam_policy" "ssm-policy" {
           "ssm:GetParameters",
           "ssm:GetParameter"
         ],
-        "Resource" : "arn:aws:ssm:us-east-1:739561048503:parameter/${var.env}.${var.component}*"
+        "Resource" : "arn:aws:ssm:us-east-1:777278876268:parameter/${var.env}.${var.component}*"
       },
       {
         "Sid" : "VisualEditor1",
