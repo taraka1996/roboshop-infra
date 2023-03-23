@@ -1,3 +1,3 @@
 bucket = "terraform-tarak"
-key    = "dev/terraform.tfstate"
+key    = "dev/infra/terraform.tfstate"
 region = "us-east-1"
