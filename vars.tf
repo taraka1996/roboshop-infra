@@ -1,2 +1,0 @@
-variable "instances" {}
-variable "env" {}
