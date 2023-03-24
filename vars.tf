@@ -1,4 +1,4 @@
 variable "env" {}
-variable "vpc_cidr" {}
+variable "vpc" {}
 variable "tags" {}
 variable "public_subnets" {}
