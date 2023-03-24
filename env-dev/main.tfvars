@@ -19,7 +19,13 @@ vpc = {
         }  
 
       }
-        
+
+      ## public routetable
+  
+
+
+
+       ## private subnet 
       private_subnets = {
         web-az1 = {
          name = "web-az1"
