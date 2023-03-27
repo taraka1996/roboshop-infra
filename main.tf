@@ -17,7 +17,7 @@ module "docdb" {
   env = var.env
   tags = var.tags
  
-  subnet_ids = local.subnet_ids
+  subnet_ids = local.subnet_ids["db"]
 
 
   for_each = var.docdb
