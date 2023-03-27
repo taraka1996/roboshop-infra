@@ -13,7 +13,7 @@ module "vpc" {
 
 
 module "docdb" {
-  source = "git::https://github.com/taraka1996/tf-module-vpc.git"
+  source = "git::https://github.com/taraka1996/tf-module-docdb.git"
   env = var.env
   tags = var.tags
  
