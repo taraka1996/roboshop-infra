@@ -65,3 +65,12 @@ docdb = {
     instance_class = "db.t3.medium"
   }
 }
+
+
+rds= {
+  main = {
+    engine = "aurora-mysql"
+    engine_version = "5.7.mysql_aurora.2.11.1"
+    backup_retention_period = "07:00-09:00"
+  }
+}
