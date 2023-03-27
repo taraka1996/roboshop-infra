@@ -5,14 +5,14 @@ vpc = {
   main = {
     vpc_cidr = "10.0.0.0/16"
 
-      public_subnets = {
+    public_subnets = {
         public-az1 = {
          name = "public-az1"
          cidr_block = "10.0.0.0/24" 
          availability_zone = "us-east-1a"    
       }
        
-        public-az2 = {
+      public-az2 = {
          name = "public-az2"
          cidr_block = "10.0.1.0/24"
          availability_zone = "us-east-1b"
@@ -21,7 +21,7 @@ vpc = {
 
     }
           ## private subnet 
-      private_subnets = {
+    private_subnets = {
        web-az1 = {
          name = "web-az1"
          cidr_block = "10.0.2.0/24" 
