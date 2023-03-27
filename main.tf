@@ -27,7 +27,3 @@ module "docdb" {
   subnet_ids = local.db_subnet_ids
 }
 
-output "vpc" {
-   value = local.db_subnet_ids
-
-}
