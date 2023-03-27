@@ -17,6 +17,7 @@ module "docdb" {
   env = var.env
   tags = var.tags
  
+  subnet_ids = l0cal.db_subnet_ids
 
   for_each = var.docdb
   engine = each.value["engine"]
