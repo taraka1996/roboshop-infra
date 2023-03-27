@@ -27,7 +27,7 @@ module "docdb" {
   skip_final_snapshot = each.value["skip_final_snapshot"]
   engine_version = each.value["engine_version"]
   instance_class = each.value["instance_class"]
-   kms_key_id = data.aws_kms_key.key.arn
+  kms_key_id = data.aws_kms_key.key.arn
   
  
 }
