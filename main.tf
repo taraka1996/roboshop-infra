@@ -38,7 +38,7 @@ module "rds" {
   env = var.env
   tags = var.tags
  
-  subnet_ids = local.dB_subnet_ids
+  subnet_ids = local.db_subnet_ids
 
 
   for_each = var.rds
