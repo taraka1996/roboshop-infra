@@ -98,7 +98,5 @@ module "app" {
   for_each = var.apps
   component= each.value["component"]
   instance_type = each.value["instance_type"]
-  load_balancer_type = each.value["load_balancer_type"]
-  subnets = lookup(local.subnet_ids, each.value["subnet_name"], null)
-
+    
 }
