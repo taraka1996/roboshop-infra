@@ -114,8 +114,13 @@ alb = {
 }
 
 app = {
-  catalogue ={
+  catalogue = {
     component  ="catalogue"
     instance_type = "t3.nano"
+    desired_capacity = 1
+    max_size = 4
+    min_size = 1
+    subnet_name = "app"
   }
 }
+
