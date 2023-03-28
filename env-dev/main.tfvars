@@ -113,3 +113,9 @@ alb = {
    
 }
 
+app = {
+  catalogue ={
+    component  ="catalogue"
+    instance_type = "t3.nano"
+  }
+}
