@@ -84,11 +84,15 @@ module "alb" {
   source = "git::https://github.com/taraka1996/tf-module-alb.git"
   env    = var.env
   tags   = var.tags
+
+   vpc_id = module.vpc["main"].vpc_id
+
   for_each = var.alb
   name = each.value["name"]
   internal = each.value["internal"]
   load_balancer_type = each.value["load_balancer_type"]
   subnets = lookup(local.subnet_ids, each.value["subnet_name"], null)
+  allow_cidr = each.value["allow_cidr"]
 
 }
 
