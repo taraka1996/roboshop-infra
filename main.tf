@@ -97,7 +97,7 @@ module "app" {
   tags   = var.tags
   bastion_cidr = var.bastion_cidr
 
-  vpc_id = module.vpc.vpc_id
+  vpc_id = module.vpc["main"].vpc_id
 
   for_each = var.app
   component= each.value["component"]
@@ -106,6 +106,6 @@ module "app" {
   min_size = each.value["min_size"]
   desired_capacity = each.value["desired_capacity"]
   subnets = lookup(local.subnet_ids, each.value["subnet_name"], null)
-  
-    
+  allow_app_to      = lookup(local.subnet_cidr, each.value["allow_app_to"], null)
+  port              = each.value["port"]
 }
