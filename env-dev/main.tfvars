@@ -164,15 +164,4 @@ app = {
     subnet_name = "web"
   }
 
-
-
-
-
-
-
-
-
-
-
 }
-
