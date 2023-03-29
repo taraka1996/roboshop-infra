@@ -98,7 +98,7 @@ module "app" {
   tags   = var.tags
   bastion_cidr = var.bastion_cidr
 
-  vpc_id = module.vpc.vpc_id
+  vpc_id = module.vpc["main"].vpc_id
 
   for_each = var.app
   component= each.value["component"]
