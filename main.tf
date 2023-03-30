@@ -49,6 +49,8 @@ module "rds" {
   engine_version = each.value["engine_version"]
   instance_class = each.value["instance_class"]
   no_of_instances = each.value["no_of_instances"]
+  vpc_id     = module.vpc["main"].vpc_id
+  allow_subnets           = lookup(local.subnet_cidr, each.value["allow_subnets"], null)
     
 }
 
