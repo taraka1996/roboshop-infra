@@ -7,7 +7,7 @@ parameters = [
   { name = "dev.user.mongo", value = "true", type = "String" },
   { name = "dev.user.redis_host", value = "redis-dev.tarak.cloud", type = "String" },
   { name = "dev.user.mongo_url", value = "mongodb://mongodb-dev.tarak.cloud:27017/catalogue", type = "String" },
-  { name = "dev.shipping.cart_endpoint", value = "cart-dev.tarak.cloud:8080", type = "String" },
+  { name = "dev.shipping.cart_endpoint", value = "cart-dev.tarak.cloud:80", type = "String" },
   { name = "dev.shipping.db_host", value = "mysql-dev.tarak.cloud", type = "String" },
   { name = "dev.payment.cart_host", value = "cart-dev.tarak.cloud", type = "String" },
   { name = "dev.payment.cart_port", value = "8080", type = "String" },
