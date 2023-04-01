@@ -82,6 +82,7 @@ module "rabbitmq" {
   dns_domain = var.dns_domain
 
   subnet_ids = local.subnet_ids["db"]
+  vpc_id     = module.vpc["main"].vpc_id
 
   for_each      = var.rabbitmq
   instance_type = each.value["instance_type"]
