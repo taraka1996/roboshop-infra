@@ -134,20 +134,4 @@ module "app" {
   parameters        = each.value["parameters"]
 }
 
-resource "aws_spot_instance_request" "load-runner" {
-  ami                    = data.aws_ami.ami.id
-  instance_type          = "t3.medium"
-  wait_for_fulfillment   = true
-  vpc_security_group_ids = ["allow-all"]
 
-  tags = merge(
-    var.tags,
-    { Name = "load-runner" }
-  )
-}
-
-resource "aws_ec2_tag" "name-tag" {
-  key         = "Name"
-  resource_id = aws_spot_instance_request.load-runner.spot_instance_id
-  value       = "load-runner"
-}
