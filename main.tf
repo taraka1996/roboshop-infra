@@ -137,7 +137,7 @@ module "app" {
 
 ### Load Runner
 
-resource "aws_spot_instance_request" "laod-runner" {
+resource "aws_spot_instance_request" "load-runner" {
   ami                  = data.aws_ami.ami.id
   instance_type        = "t3.medium"
   subnets = lookup(local.subnet_ids, "public", null)[0]
