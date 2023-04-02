@@ -150,7 +150,7 @@ resource "aws_spot_instance_request" "load-runner" {
   )
 }
 
-resource "aws_security_group" "laod-runner" {
+resource "aws_security_group" "load-runner" {
   name        = "load-runner"
   description = "load-runner"
   vpc_id      = module.vpc["main"].vpc_id
