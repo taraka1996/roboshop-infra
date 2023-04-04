@@ -12,6 +12,4 @@ resource "aws_ssm_parameter" "secret" {
   value = var.secrets[count.index].value
 }
 
-variable "parameters" {}
-variable "secrets" {}
 
