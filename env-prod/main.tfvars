@@ -1,5 +1,5 @@
 env          = "prod"
-bastion_cidr = ["172.31.10.87/32"]
+bastion_cidr = ["172.31.5.143/32"]
 monitoring_nodes = ["172.31.2.49/32"]
 dns_domain = "tarak.cloud"
 
