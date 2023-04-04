@@ -1,4 +1,0 @@
-variable "parameters" {}
-variable "secrets" {}
-
-
