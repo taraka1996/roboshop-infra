@@ -163,9 +163,9 @@ resource "null_resource" "load-gen" {
        }
        inline = [
          "curl -s -L https://get.docker.com | bash",
-      "systemctl enable docker",
-      "systemctl start docker",
-      "docker pull robotshop/rs-load"
+         "systemctl enable docker",
+         "systemctl start docker",
+         "docker pull robotshop/rs-load"
         
       ]
     }
