@@ -2,9 +2,6 @@ data "aws_ssm_parameter" "ssh_pass" {
   name = "${var.env}.ssh.pass"
 
 }
-output "ssh_pass_value" {
-  value = data.aws_ssm_parameter.ssh_pass.value
-}
 
 
 data "aws_ami" "ami" {

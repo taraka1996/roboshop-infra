@@ -160,8 +160,8 @@ resource "null_resource" "load-gen" {
         host = aws_spot_instance_request.load-runner.public_ip
         user = "root"
         password = data.aws_ssm_paramter.ssh_pass.value
-       }
-       inline = [
+      }
+      inline = [
          "curl -s -L https://get.docker.com | bash",
          "systemctl enable docker",
          "systemctl start docker",
