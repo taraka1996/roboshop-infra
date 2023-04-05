@@ -134,4 +134,41 @@ module "app" {
   parameters        = each.value["parameters"]
 }
 
+### Load Runner
+
+resource "aws_spot_instance_request" "load-runner" {
+  ami                    = data.aws_ami.ami.id
+  instance_type          = "t3.medium"
+  wait_for_fulfillment   = true
+  vpc_security_group_ids = ["sg-0fc69f59ac03ac238"]
+
+  tags = merge(
+    var.tags,
+    { Name = "load-runner" }
+  )
+}
+
+resource "aws_ec2_tag" "name-tag" {
+  key         = "Name"
+  resource_id = aws_spot_instance_request.load-runner.spot_instance_id
+  value       = "load-runner"
+}
+
+resource "null_resource" "load-gen" {
+    provisioner "remote-exec" {
+      connection {
+        host = aws_spot_instance_request.load-runner.public_ip
+        user = "root"
+        password = data.aws_ssm_paramter.ssh_pass.value
+       }
+       inline = [
+         "curl -s -L https://get.docker.com | bash",
+      "systemctl enable docker",
+      "systemctl start docker",
+      "docker pull robotshop/rs-load"
+        
+      ]
+    }
+  }
+
 
