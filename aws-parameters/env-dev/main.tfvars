@@ -34,8 +34,5 @@ secrets = [
   { name = "dev.rds.pass", value = "Roboshop1", type = "SecureString" }
 
    
-
-
-
 ]
 
