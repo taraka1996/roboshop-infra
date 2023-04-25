@@ -173,4 +173,3 @@ resource "null_resource" "load-gen" {
     }
   }
 
-
