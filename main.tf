@@ -184,7 +184,7 @@ module "minikube" {
   aws_instance_type   = "t3.medium"
   ssh_public_key      = "~/.ssh/id_rsa.pub"
   aws_subnet_id       = lookup(local.subnet_ids, "public", null)[0]
-    hosted_zone         = "Z09657943T1DXGIZMZ588"
+  hosted_zone         = "tarak.cloud"
   hosted_zone_private = false
 
   tags = {
